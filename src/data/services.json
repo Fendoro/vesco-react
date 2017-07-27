@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Web Design",
+    "icon": "paint-brush",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  },
+  {
+    "title": "Web Development",
+    "icon": "laptop",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  },
+  {
+    "title": "Mobile Apps",
+    "icon": "tablet",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  },
+  {
+    "title": "SEO Optimization",
+    "icon": "search",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  },
+  {
+    "title": "UX Design",
+    "icon": "pencil-square-o",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  },
+  {
+    "title": "Support",
+    "icon": "life-ring",
+    "description": "Non eiusmod Lorem elit aute id duis deserunt pariatur ad sint culpa deserunt."
+  }
+]

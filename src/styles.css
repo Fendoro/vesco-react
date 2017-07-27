@@ -1,0 +1,68 @@
+/* General */
+
+html,
+body,
+#root,
+#app {
+    height: 100%;
+}
+
+body,
+#root,
+#app {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+p {
+    color: #64707b;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+h3 {
+    color: #41464b;
+    text-transform: uppercase;
+}
+
+
+/* PARALAX (Generic) */
+
+.bg-parallax {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* SOCIAL */
+
+.social-list {
+    padding-left: 0;
+}
+
+.social-list li {
+    list-style: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 6px;
+    margin-top: 10px;
+}
+
+.social-icon i {
+    font-size: 17px;
+}
+
+.icon-gray i {
+    color: #64707b;
+}
+
+.icon-gray i:hover,
+.icon-white i:hover {
+    color: #34c6d3;
+}
+
+.icon-white i {
+    color: #fff;
+}
