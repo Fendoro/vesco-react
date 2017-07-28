@@ -21,7 +21,12 @@ class Work extends Component {
     return this.props.works.map((work, index) => (
       <Col key={work.image} md={3} sm={4}>
         <div className="img-wrapper">
-          <a tabIndex={index} role="button" onClick={() => this.setState({ lightboxIsOpen: true, currentImage: index })} title={work.description}>
+          <a
+            tabIndex={index}
+            role="button"
+            onClick={() => this.setState({ lightboxIsOpen: true, currentImage: index })}
+            title={work.description}
+          >
             <img className="img-responsive" src={`img/work/${work.image}`} alt={work.description} />
           </a>
         </div>
@@ -31,7 +36,7 @@ class Work extends Component {
 
   render() {
     return (
-      <ContentBox title="Our Work" rowClassName="no-gutters" fluid>
+      <ContentBox title="Our Work" rowClassName="no-gutters" fluid animateRow>
         {this.renderWorks()}
         <Lightbox
           images={this.props.works.map(work => ({ src: `img/work/${work.image}` }))}

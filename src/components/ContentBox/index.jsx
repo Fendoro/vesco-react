@@ -43,7 +43,7 @@ ContentBox.propTypes = {
   rowClassName: PropTypes.string,
 };
 ContentBox.defaultProps = {
-  animateRow: true,
+  animateRow: false,
   children: '',
   fluid: false,
   rowClassName: '',

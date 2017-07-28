@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Daniel Waltrous",
+    "image": "team-1.jpg",
+    "designation": "CEO"
+  },
+  {
+    "name": "Sara Smith",
+    "image": "team-2.jpg",
+    "designation": "Co-Founder"
+  },
+  {
+    "name": "Steve Mike",
+    "image": "team-3.jpg",
+    "designation": "Sr. Developer"
+  },
+  {
+    "name": "Robert Hinay",
+    "image": "team-4.jpg",
+    "designation": "Sr. Designer"
+  },
+  {
+    "name": "Mike Tera",
+    "image": "team-5.jpg",
+    "designation": "Sales"
+  }
+]

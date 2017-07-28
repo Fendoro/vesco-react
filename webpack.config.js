@@ -7,10 +7,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'react-dom',
   'react-bootstrap', 'prop-types', 'react-images',
-  'react-responsive-carousel',
+  'react-slick',
 ];
 
 const config = {
+  devtool: 'source-map',
   entry: {
     bundle: './src/index.jsx',
     vendor: VENDOR_LIBS,
@@ -63,8 +64,8 @@ const config = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/data/work',
-        to: 'img/work',
+        from: 'src/data/img',
+        to: 'img',
       },
     ]),
   ],
