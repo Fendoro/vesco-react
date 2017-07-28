@@ -2,9 +2,12 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlaugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const VENDOR_LIBS = [
-  'react', 'redux', 'react-redux', 'react-dom', 'react-bootstrap', 'prop-types',
+  'react', 'redux', 'react-redux', 'react-dom',
+  'react-bootstrap', 'prop-types', 'react-images',
+  'react-responsive-carousel',
 ];
 
 const config = {
@@ -58,6 +61,12 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/data/work',
+        to: 'img/work',
+      },
+    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

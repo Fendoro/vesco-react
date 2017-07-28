@@ -7,9 +7,9 @@ import './assets/styles.css';
 
 export default class ContentBox extends Component {
   renderRow() {
-    const { animateRow, children } = this.props;
+    const { animateRow, children, rowClassName } = this.props;
     let row = (
-      <Row>
+      <Row className={rowClassName}>
         {children}
       </Row>
     );
@@ -23,11 +23,11 @@ export default class ContentBox extends Component {
     return row;
   }
   render() {
-    const { title } = this.props;
+    const { title, fluid } = this.props;
     return (
       <div className="content-box">
         <ContentTitle title={title} />
-        <Grid>
+        <Grid fluid={fluid}>
           {this.renderRow()}
         </Grid>
       </div>
@@ -39,8 +39,12 @@ ContentBox.propTypes = {
   title: PropTypes.string.isRequired,
   animateRow: PropTypes.bool,
   children: PropTypes.node,
+  fluid: PropTypes.bool,
+  rowClassName: PropTypes.string,
 };
 ContentBox.defaultProps = {
   animateRow: true,
   children: '',
+  fluid: false,
+  rowClassName: '',
 };

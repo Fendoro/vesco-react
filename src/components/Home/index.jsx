@@ -2,7 +2,7 @@ import React from 'react';
 import { WhiteButton, UseNavigate } from '../Button';
 import Section from '../Section';
 import Cover from '../Cover';
-import * as Work from '../Work';
+import { ID as WorkId } from '../Work';
 import './assets/styles.css';
 
 export const ID = 'home';
@@ -17,7 +17,7 @@ const Home = () => {
         <div id={`${ID}-btn`} className="animated zoomIn">
           <Button
             bsSize="lg"
-            href={`#${Work.ID}`}
+            href={`#${WorkId}`}
             type="button"
           >
             View Our Work

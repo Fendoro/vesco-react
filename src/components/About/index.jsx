@@ -4,7 +4,7 @@ import { BlueButton, UseNavigate } from '../Button';
 import ScrollAnimation from '../ScrollAnimation';
 import Section from '../Section';
 import ContentTitle from '../ContentTitle';
-import * as Work from '../Work';
+import { ID as WorkId } from '../Work';
 import './assets/styles.css';
 
 export const ID = 'about';
@@ -34,7 +34,7 @@ const About = () => {
                     <div id="about-btn">
                       <Button
                         bsSize="lg"
-                        href={`#${Work.ID}`}
+                        href={`#${WorkId}`}
                         type="button"
                       >
                         View Our Work
