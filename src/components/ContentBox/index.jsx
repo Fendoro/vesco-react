@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row } from 'react-bootstrap';
 import ScrollAnimation from '../ScrollAnimation';
+import ContentTitle from '../ContentTitle';
 import './assets/styles.css';
 
 export default class ContentBox extends Component {
@@ -25,12 +26,7 @@ export default class ContentBox extends Component {
     const { title } = this.props;
     return (
       <div className="content-box">
-        <ScrollAnimation animateIn="fadeInDown">
-          <div className="content-title">
-            <h3>{title}</h3>
-            <div className="content-title-underline" />
-          </div>
-        </ScrollAnimation>
+        <ContentTitle title={title} />
         <Grid>
           {this.renderRow()}
         </Grid>
