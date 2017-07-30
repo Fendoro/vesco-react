@@ -7,7 +7,7 @@ import './assets/styles.css';
 
 export default class ContentBox extends Component {
   renderRow() {
-    const { animateRow, children, rowClassName } = this.props;
+    const { animateRow, children, rowClassName, animateRowType } = this.props;
     let row = (
       <Row className={rowClassName}>
         {children}
@@ -15,7 +15,7 @@ export default class ContentBox extends Component {
     );
     if (animateRow) {
       row = (
-        <ScrollAnimation animateIn="fadeInUp">
+        <ScrollAnimation animateIn={animateRowType || ContentBox.animateRowType}>
           {row}
         </ScrollAnimation>
       );
@@ -23,10 +23,10 @@ export default class ContentBox extends Component {
     return row;
   }
   render() {
-    const { title, fluid } = this.props;
+    const { title, fluid, titleClassName } = this.props;
     return (
       <div className="content-box">
-        <ContentTitle title={title} />
+        <ContentTitle title={title} className={titleClassName} />
         <Grid fluid={fluid}>
           {this.renderRow()}
         </Grid>
@@ -41,10 +41,15 @@ ContentBox.propTypes = {
   children: PropTypes.node,
   fluid: PropTypes.bool,
   rowClassName: PropTypes.string,
+  titleClassName: PropTypes.string,
+  animateRowType: PropTypes.string,
 };
+
 ContentBox.defaultProps = {
   animateRow: false,
   children: '',
   fluid: false,
   rowClassName: '',
+  titleClassName: '',
+  animateRowType: 'fadeInUp',
 };

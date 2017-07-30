@@ -7,14 +7,17 @@ import Work from './Work';
 import works from '../data/works.json';
 import Team from './Team';
 import team from '../data/team.json';
+import Testimonials from './Testimonials';
+import testimonials from '../data/testimonials.json';
 
 const App = () => (
   <div id="app">
-     <Home />
+    <Home />
     <Services services={services} />
-    <About /> 
+    <About />
     <Work works={works} />
     <Team team={team} />
+    <Testimonials testimonials={testimonials} />
   </div>
 );
 

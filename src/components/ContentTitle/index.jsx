@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import ScrollAnimation from '../ScrollAnimation';
 import './assets/styles.css';
 
-const ContentTitle = props => (
+const ContentTitle = ({ title, className }) => (
   <ScrollAnimation animateIn="fadeInDown">
-    <div className="content-title">
-      <h3>{props.title}</h3>
+    <div className={`content-title ${className}`}>
+      <h3>{title}</h3>
       <div className="content-title-underline" />
     </div>
   </ScrollAnimation>
@@ -14,6 +14,11 @@ const ContentTitle = props => (
 
 ContentTitle.propTypes = {
   title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+ContentTitle.defaultProps = {
+  className: '',
 };
 
 export default ContentTitle;

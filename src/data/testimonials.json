@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Daniel Watrous",
+    "image": "client-1.jpg",
+    "designation": "Google",
+    "testimonial": "Nisi sit est sint mollit do id laborum laborum nostrud. Dolore veniam ex qui irure deserunt enim aute ea nostrud deserunt enim. Enim mollit magna elit ipsum."
+  },
+  {
+    "name": "Johan Mathew",
+    "image": "client-2.jpg",
+    "designation": "Yahoo",
+    "testimonial": "Nisi sit est sint mollit do id laborum laborum nostrud. Dolore veniam ex qui irure deserunt enim aute ea nostrud deserunt enim. Enim mollit magna elit ipsum."
+  },
+  {
+    "name": "Sara Smith",
+    "image": "client-3.jpg",
+    "designation": "Amazon",
+    "testimonial": "Nisi sit est sint mollit do id laborum laborum nostrud. Dolore veniam ex qui irure deserunt enim aute ea nostrud deserunt enim. Enim mollit magna elit ipsum."
+  }
+]
