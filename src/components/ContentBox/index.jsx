@@ -15,7 +15,7 @@ export default class ContentBox extends Component {
     );
     if (animateRow) {
       row = (
-        <ScrollAnimation animateIn={animateRowType || ContentBox.animateRowType}>
+        <ScrollAnimation animateIn={animateRowType || ContentBox.defaultProps.animateRowType}>
           {row}
         </ScrollAnimation>
       );

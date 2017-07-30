@@ -9,6 +9,8 @@ import Team from './Team';
 import team from '../data/team.json';
 import Testimonials from './Testimonials';
 import testimonials from '../data/testimonials.json';
+import Pricing from './Pricing';
+import pricing from '../data/pricing.json';
 
 const App = () => (
   <div id="app">
@@ -18,6 +20,7 @@ const App = () => (
     <Work works={works} />
     <Team team={team} />
     <Testimonials testimonials={testimonials} />
+    <Pricing pricing={pricing} mainPriceIndex={1} />
   </div>
 );
 

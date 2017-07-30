@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Basic",
+    "value": 49,
+    "specs": ["500 Emails", "5GB Disk Space"]
+  },
+  {
+    "title": "Enterprise",
+    "value": 89,
+    "specs": ["500 Emails", "5GB Disk Space", "5GB Bandwidth", "Unlimited Domains"]
+  },
+  {
+    "title": "Standard",
+    "value": 69,
+    "specs": ["500 Emails", "5GB Disk Space", "5GB Bandwidth"]
+  }
+]
