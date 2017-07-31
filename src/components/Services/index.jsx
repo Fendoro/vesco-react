@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import Section from '../Section';
 import ContentBox from '../ContentBox';
+import DynamicContent from '../DynamicContent';
 import ScrollAnimation from '../ScrollAnimation';
 import './assets/styles.css';
 
 export const ID = 'services';
 class Services extends Component {
   renderData() {
+    const { columns } = this.props;
     return this.props.services.map(service => (
-      <Col key={service.title} md={4} sm={6}>
+      <Col key={service.title} md={columns} sm={columns * 2}>
         <ScrollAnimation animateIn="fadeInUp">
           <div className="service-item">
             <div className="service-item-icon">
@@ -39,6 +41,7 @@ class Services extends Component {
 
 Services.propTypes = {
   services: PropTypes.arrayOf(PropTypes.object).isRequired,
+  columns: PropTypes.number.isRequired,
 };
 
-export default Section(Services, ID);
+export default Section(DynamicContent(Services), ID);

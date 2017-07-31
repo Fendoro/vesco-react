@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Downloads",
+    "icon": "cloud-download",
+    "value": 1599
+  },
+  {
+    "title": "Awarsd",
+    "icon": "star-o",
+    "value": 3500
+  },
+  {
+    "title": "Likes",
+    "icon": "heart-o",
+    "value": 1199
+  },
+  {
+    "title": "Recomended",
+    "icon": "check",
+    "value": 2200
+  }
+]

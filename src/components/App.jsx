@@ -11,16 +11,19 @@ import Testimonials from './Testimonials';
 import testimonials from '../data/testimonials.json';
 import Pricing from './Pricing';
 import pricing from '../data/pricing.json';
+import Stats from './Stats';
+import stats from '../data/stats.json';
 
 const App = () => (
   <div id="app">
     <Home />
-    <Services services={services} />
+    <Services services={services} columnsPerRow={3} />
     <About />
     <Work works={works} />
     <Team team={team} />
     <Testimonials testimonials={testimonials} />
-    <Pricing pricing={pricing} mainPriceIndex={1} />
+    <Pricing pricing={pricing} mainPriceIndex={1} columnsPerRow={3} />
+    <Stats stats={stats} columnsPerRow={stats.length} />
   </div>
 );
 

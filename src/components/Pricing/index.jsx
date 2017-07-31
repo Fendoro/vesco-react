@@ -4,6 +4,7 @@ import { Col } from 'react-bootstrap';
 import ScrollAnimation from '../ScrollAnimation';
 import Section from '../Section';
 import ContentBox from '../ContentBox';
+import DynamicContent from '../DynamicContent';
 import './assets/styles.css';
 
 export const ID = 'pricing';
@@ -17,10 +18,6 @@ class Pricing extends Component {
     ));
   }
 
-  static calcColumns(columnsPerRow) {
-    return 12 / columnsPerRow;
-  }
-
   static getMainPrice(pricing, mainValue) {
     return pricing.findIndex(({ value }) => value === mainValue);
   }
@@ -29,17 +26,11 @@ class Pricing extends Component {
     super(props);
 
     this.state = {
-      columns: Pricing.calcColumns(props.columnsPerRow),
       mainPriceIndex: props.mainPriceIndex,
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.columnsPerRow !== nextProps.columnsPerRow) {
-      this.setState({
-        columns: Pricing.calcColumns(nextProps.columnsPerRow),
-      });
-    }
     if (this.props.mainPriceIndex !== nextProps.mainPriceIndex) {
       this.setState({
         mainPriceIndex: nextProps.mainPriceIndex,
@@ -48,13 +39,12 @@ class Pricing extends Component {
   }
 
   renderPricing() {
-    const { pricing } = this.props;
-    const { columns, mainPriceIndex } = this.state;
+    const { columns, pricing } = this.props;
+    const { mainPriceIndex } = this.state;
     const sortedPricing = pricing.filter((price, index) => index !== mainPriceIndex);
     const mainPrice = pricing[mainPriceIndex];
     const insertIndex = sortedPricing.length / 2;
     sortedPricing.splice(insertIndex, 0, mainPrice);
-    console.log(mainPriceIndex, pricing, mainPrice, insertIndex, sortedPricing);
     return sortedPricing.map(({ title, value, specs }, index) => {
       const isMain = index === insertIndex;
       return (
@@ -87,12 +77,8 @@ class Pricing extends Component {
 
 Pricing.propTypes = {
   pricing: PropTypes.arrayOf(PropTypes.object).isRequired,
-  columnsPerRow: PropTypes.number,
+  columns: PropTypes.number.isRequired,
   mainPriceIndex: PropTypes.number.isRequired,
 };
 
-Pricing.defaultProps = {
-  columnsPerRow: 3,
-};
-
-export default Section(Pricing, ID);
+export default Section(DynamicContent(Pricing), ID);
