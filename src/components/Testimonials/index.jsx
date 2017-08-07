@@ -51,7 +51,7 @@ class Testimonials extends Component {
               slidesToShow={1}
               slidesToScroll={1}
               responsive={[
-                { breakpoint: 0, settings: { slidesToShow: 1 } },
+                { breakpoint: 10000000, settings: { slidesToShow: 1 } },
               ]}
             >
               {this.renderTestimonials()}

@@ -13,6 +13,9 @@ import Pricing from './Pricing';
 import pricing from '../data/pricing.json';
 import Stats from './Stats';
 import stats from '../data/stats.json';
+import Clients from './Clients';
+import clients from '../data/clients.json';
+import Footer from './Footer';
 
 const App = () => (
   <div id="app">
@@ -24,6 +27,8 @@ const App = () => (
     <Testimonials testimonials={testimonials} />
     <Pricing pricing={pricing} mainPriceIndex={1} columnsPerRow={3} />
     <Stats stats={stats} columnsPerRow={stats.length} />
+    <Clients clients={clients} />
+    <Footer />
   </div>
 );
 
