@@ -1,8 +1,43 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { NavigateButton, BlueButton, BackToTop, WhiteButton, UseNavigate } from '../Button';
 import './assets/styles.css';
 
+const Button = BackToTop(UseNavigate(BlueButton));
+
 class Footer extends Component {
+  renderMenuItems() {
+    const { menuItems } = this.props;
+    const lastIndex = menuItems.length - 1;
+    return menuItems.map(({ id, title }, index) => (
+      <li key={id}>
+        <NavigateButton href={`#${id}`}>{title}</NavigateButton>{index === lastIndex ? '' : '/'}
+      </li>
+    ));
+  }
+
+  renderFooterMenu() {
+    if (this.props.showMenu) {
+      return (<Col md={6} smHidden xsHidden>
+        <div id="footer-menu">
+          <ul>
+            {this.renderMenuItems()}
+          </ul>
+        </div>
+      </Col>);
+    }
+    return null;
+  }
+
+  renderBackToTop() {
+    const { id, title } = this.props.menuItems[0];
+    return (
+      <Button title={title} href={`#${id}`} >
+        <i className="fa fa-angle-up" />
+      </Button>
+    );
+  }
+
   render() {
     return (
       <footer>
@@ -59,7 +94,7 @@ class Footer extends Component {
                     <input type="text" name="email" placeholder="Email Address" className="form-control" />
                     <textarea name="message" placeholder="Message..." rows="5" className="form-control" />
                     <div id="send-btn">
-                      <a className="btn btn-lg btn-general btn-white" href="#" role="button">Send</a>
+                      <WhiteButton href="#">Send</WhiteButton>
                     </div>
                   </form>
                 </div>
@@ -75,42 +110,11 @@ class Footer extends Component {
                   <p>Copyrights &copy; 2017 All Rights Reserved by Vesco Inc.</p>
                 </div>
               </Col>
-              <Col md={6} smHidden xsHidden>
-                <div id="footer-menu">
-                  <ul>
-                    <li>
-                      <a className="smooth-scroll" href="#home">Home</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#services">Services</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#about">About</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#work">Work</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#team">Team</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#testimonials">Testimonials</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#pricing">Pricing</a>/
-                    </li>
-                    <li>
-                      <a className="smooth-scroll" href="#stats">Stats</a>
-                    </li>
-                  </ul>
-                </div>
-              </Col>
+              {this.renderFooterMenu()}
             </Row>
           </Grid>
         </div>
-        <a id="back-to-top" className="btn btn-sm btn-blue btn-back-to-top smooth-scroll hidden-sm hidden-xs" href="#home" role="button" title="home">
-          <i className="fa fa-angle-up" />
-        </a>
+        {this.renderBackToTop()}
       </footer>
     );
   }

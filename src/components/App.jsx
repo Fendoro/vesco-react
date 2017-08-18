@@ -1,21 +1,60 @@
 import React from 'react';
-import Home from './Home';
-import Services from './Services';
+import Home, { ID as HomeId } from './Home';
+import Services, { ID as ServicesId } from './Services';
 import services from '../data/services.json';
-import About from './About';
-import Work from './Work';
+import About, { ID as AboutId } from './About';
+import Work, { ID as WorkId } from './Work';
 import works from '../data/works.json';
-import Team from './Team';
+import Team, { ID as TeamId } from './Team';
 import team from '../data/team.json';
-import Testimonials from './Testimonials';
+import Testimonials, { ID as TestimonialsId } from './Testimonials';
 import testimonials from '../data/testimonials.json';
-import Pricing from './Pricing';
+import Pricing, { ID as PricingId } from './Pricing';
 import pricing from '../data/pricing.json';
-import Stats from './Stats';
+import Stats, { ID as StatsId } from './Stats';
 import stats from '../data/stats.json';
-import Clients from './Clients';
+import Clients, { ID as ClientsId } from './Clients';
 import clients from '../data/clients.json';
 import Footer from './Footer';
+
+const Menu = [
+  {
+    id: HomeId,
+    title: "Home"
+  },
+  {
+    id: ServicesId,
+    title: "Services"
+  },
+  {
+    id: AboutId,
+    title: "About"
+  },
+  {
+    id: WorkId,
+    title: "Work"
+  },
+  {
+    id: TeamId,
+    title: "Team"
+  },
+  {
+    id: TestimonialsId,
+    title: "Testimonials"
+  },
+  {
+    id: PricingId,
+    title: "Pricing"
+  },
+  {
+    id: StatsId,
+    title: "Stats"
+  },
+  {
+    id: ClientsId,
+    title: "Clients"
+  }
+];
 
 const App = () => (
   <div id="app">
@@ -28,7 +67,7 @@ const App = () => (
     <Pricing pricing={pricing} mainPriceIndex={1} columnsPerRow={3} />
     <Stats stats={stats} columnsPerRow={stats.length} />
     <Clients clients={clients} />
-    <Footer />
+    <Footer showMenu menuItems={Menu.slice(0, Menu.length - 1)} />
   </div>
 );
 

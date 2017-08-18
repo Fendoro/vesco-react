@@ -30,3 +30,7 @@
     font-weight: 300;
     margin-top: 0;
 }
+
+.counter {
+    display: inline-block;
+}
