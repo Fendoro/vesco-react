@@ -20,41 +20,47 @@ import Footer from './Footer';
 const Menu = [
   {
     id: HomeId,
-    title: "Home"
+    title: 'Home',
   },
   {
     id: ServicesId,
-    title: "Services"
+    title: 'Services',
   },
   {
     id: AboutId,
-    title: "About"
+    title: 'About',
   },
   {
     id: WorkId,
-    title: "Work"
+    title: 'Work',
   },
   {
     id: TeamId,
-    title: "Team"
+    title: 'Team',
   },
   {
     id: TestimonialsId,
-    title: "Testimonials"
+    title: 'Testimonials',
   },
   {
     id: PricingId,
-    title: "Pricing"
+    title: 'Pricing',
   },
   {
     id: StatsId,
-    title: "Stats"
+    title: 'Stats',
   },
   {
     id: ClientsId,
-    title: "Clients"
-  }
+    title: 'Clients',
+  },
 ];
+
+const socials = ['facebook', 'twitter', 'google-plus', 'youtube-play'];
+const footerSocials = socials.map(social => ({
+  type: social,
+  color: 'white',
+}));
 
 const App = () => (
   <div id="app">
@@ -67,7 +73,12 @@ const App = () => (
     <Pricing pricing={pricing} mainPriceIndex={1} columnsPerRow={3} />
     <Stats stats={stats} columnsPerRow={stats.length} />
     <Clients clients={clients} />
-    <Footer showMenu menuItems={Menu.slice(0, Menu.length - 1)} />
+    <Footer
+      showMenu
+      menuItems={Menu.slice(0, Menu.length - 1)}
+      showSocials
+      socials={footerSocials}
+    />
   </div>
 );
 

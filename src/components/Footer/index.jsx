@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { NavigateButton, BlueButton, BackToTop, WhiteButton, UseNavigate } from '../Button';
+import SocialList from '../SocialList';
 import './assets/styles.css';
 
 const Button = BackToTop(UseNavigate(BlueButton));
@@ -38,6 +40,13 @@ class Footer extends Component {
     );
   }
 
+  renderSocials() {
+    if (this.props.showSocials) {
+      return <SocialList socials={this.props.socials} />;
+    }
+    return null;
+  }
+
   render() {
     return (
       <footer>
@@ -62,37 +71,16 @@ class Footer extends Component {
                       </p>
                     </div>
                   </div>
-                  <ul className="social-list">
-                    <li>
-                      <a href="#" className="social-icon icon-white">
-                        <i className="fa fa-facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="social-icon icon-white">
-                        <i className="fa fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="social-icon icon-white">
-                        <i className="fa fa-youtube-play" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="social-icon icon-white">
-                        <i className="fa fa-google-plus" />
-                      </a>
-                    </li>
-                  </ul>
+                  {this.renderSocials()}
                 </div>
               </Col>
               <Col md={6}>
                 <div id="contact-right">
                   <h3>Contact Us</h3>
                   <form action="#">
-                    <input type="text" name="full-name" placeholder="Full Name" className="form-control" />
-                    <input type="text" name="email" placeholder="Email Address" className="form-control" />
-                    <textarea name="message" placeholder="Message..." rows="5" className="form-control" />
+                    <input type="text" name="full-name" placeholder="Full Name" className="form-control" required />
+                    <input type="email" name="email" placeholder="Email Address" className="form-control" required />
+                    <textarea name="message" placeholder="Message..." rows="5" className="form-control" required />
                     <div id="send-btn">
                       <WhiteButton href="#">Send</WhiteButton>
                     </div>
@@ -119,5 +107,19 @@ class Footer extends Component {
     );
   }
 }
+
+Footer.propTypes = {
+  showMenu: PropTypes.bool,
+  menuItems: PropTypes.arrayOf(PropTypes.object),
+  showSocials: PropTypes.bool,
+  socials: PropTypes.arrayOf(PropTypes.object),
+};
+
+Footer.defaultProps = {
+  showMenu: false,
+  menuItems: [],
+  showSocials: false,
+  socials: [],
+};
 
 export default Footer;

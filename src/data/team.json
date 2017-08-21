@@ -2,26 +2,31 @@
   {
     "name": "Daniel Waltrous",
     "image": "team-1.jpg",
-    "designation": "CEO"
+    "designation": "CEO",
+    "socials": ["facebook", "twitter", "google-plus"]
   },
   {
     "name": "Sara Smith",
     "image": "team-2.jpg",
-    "designation": "Co-Founder"
+    "designation": "Co-Founder",
+    "socials": ["facebook", "twitter", "google-plus"]
   },
   {
     "name": "Steve Mike",
     "image": "team-3.jpg",
-    "designation": "Sr. Developer"
+    "designation": "Sr. Developer",
+    "socials": ["facebook", "twitter", "google-plus"]
   },
   {
     "name": "Robert Hinay",
     "image": "team-4.jpg",
-    "designation": "Sr. Designer"
+    "designation": "Sr. Designer",
+    "socials": ["facebook", "twitter", "google-plus"]
   },
   {
     "name": "Mike Tera",
     "image": "team-5.jpg",
-    "designation": "Sales"
+    "designation": "Sales",
+    "socials": ["facebook", "twitter", "google-plus"]
   }
 ]

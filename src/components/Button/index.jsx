@@ -45,13 +45,13 @@ BlueButton.defaultProps = VescoButton.defaultProps;
 export const UseNavigate = ComposedComponent => (props) => {
   const { bsClass } = props;
   const newBsClass = `smooth-scroll ${bsClass || ''}`;
-  return <ComposedComponent {...props} bsClass={newBsClass} />
+  return <ComposedComponent {...props} bsClass={newBsClass} />;
 };
 
 export const BackToTop = ComposedComponent => (props) => {
   const { bsClass } = props;
   const newBsClass = `btn-back-to-top ${bsClass || ''}`;
-  return <ComposedComponent id="back-to-top" {...props} bsClass={newBsClass} />
+  return <ComposedComponent id="back-to-top" {...props} bsClass={newBsClass} />;
 };
 
 export const NavigateButton = UseNavigate(Button);

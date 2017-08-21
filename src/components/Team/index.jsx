@@ -6,35 +6,20 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Section from '../Section';
 import ContentBox from '../ContentBox';
+import SocialList from '../SocialList';
 import './assets/styles.css';
 
 export const ID = 'team';
 
 class Team extends Component {
   renderTeamMembers() {
-    return this.props.team.map(({ image, name, designation }) => (
+    return this.props.team.map(({ image, name, designation, socials }) => (
       <div key={name} className="team-member">
         <img src={`img/team/${image}`} className="img-responsive" alt={name} />
         <div className="team-member-info text-center">
           <h4 className="team-member-name">{name}</h4>
           <h4 className="team-member-designation">{designation}</h4>
-          <ul className="social-list">
-            <li>
-              <a href="#" className="social-icon icon-gray">
-                <i className="fa fa-facebook" />
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-icon icon-gray">
-                <i className="fa fa-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="#" className="social-icon icon-gray">
-                <i className="fa fa-google-plus" />
-              </a>
-            </li>
-          </ul>
+          <SocialList socials={socials.map(social => ({ type: social, color: 'gray' }))} />
         </div>
       </div>
     ));
