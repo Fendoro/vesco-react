@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'react-dom',
   'react-bootstrap', 'prop-types', 'react-images',
-  'react-slick',
+  'react-slick', 'react-scroll',
 ];
 
 const config = {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './assets/styles.css';
 
 class SocialList extends Component {
   renderSocials() {

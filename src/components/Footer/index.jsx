@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { NavigateButton, BlueButton, BackToTop, WhiteButton, UseNavigate } from '../Button';
+import { NavigateButton, BlueButton, BackToTop, WhiteButton } from '../Button';
 import SocialList from '../SocialList';
 import './assets/styles.css';
 
-const Button = BackToTop(UseNavigate(BlueButton));
+const Button = BackToTop(BlueButton);
+export const ID = 'contact';
 
 class Footer extends Component {
   renderMenuItems() {
@@ -13,7 +14,19 @@ class Footer extends Component {
     const lastIndex = menuItems.length - 1;
     return menuItems.map(({ id, title }, index) => (
       <li key={id}>
-        <NavigateButton href={`#${id}`}>{title}</NavigateButton>{index === lastIndex ? '' : '/'}
+        <NavigateButton
+          href={`#${id}`}
+          to={id}
+          spy
+          smooth
+          offset={-64}
+          duration={1250}
+          delay={100}
+          isDynamic
+        >
+          {title}
+        </NavigateButton>
+        {index === lastIndex ? '' : '/'}
       </li>
     ));
   }
@@ -50,7 +63,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <div id="contact">
+        <div id={ID}>
           <Grid>
             <Row>
               <Col md={6}>

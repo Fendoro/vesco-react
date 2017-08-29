@@ -36,6 +36,13 @@ const About = () => {
                         bsSize="lg"
                         href={`#${WorkId}`}
                         type="button"
+                        to={WorkId}
+                        spy
+                        smooth
+                        offset={-64}
+                        duration={1250}
+                        delay={100}
+                        isDynamic
                       >
                         View Our Work
                       </Button>

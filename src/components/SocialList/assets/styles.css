@@ -1,0 +1,31 @@
+/* SOCIAL */
+
+.social-list {
+    padding-left: 0;
+}
+
+.social-list li {
+    list-style: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 6px;
+    margin-top: 10px;
+}
+
+.social-icon i {
+    font-size: 17px;
+}
+
+.icon-gray i {
+    color: #64707b;
+}
+
+.icon-gray i:hover,
+.icon-white i:hover {
+    color: #34c6d3;
+}
+
+.icon-white i {
+    color: #fff;
+}

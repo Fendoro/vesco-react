@@ -15,7 +15,8 @@ import Stats, { ID as StatsId } from './Stats';
 import stats from '../data/stats.json';
 import Clients, { ID as ClientsId } from './Clients';
 import clients from '../data/clients.json';
-import Footer from './Footer';
+import Footer, { ID as ContactId } from './Footer';
+import Header from './Header';
 
 const Menu = [
   {
@@ -54,6 +55,10 @@ const Menu = [
     id: ClientsId,
     title: 'Clients',
   },
+  {
+    id: ContactId,
+    title: 'Contact',
+  },
 ];
 
 const socials = ['facebook', 'twitter', 'google-plus', 'youtube-play'];
@@ -64,6 +69,7 @@ const footerSocials = socials.map(social => ({
 
 const App = () => (
   <div id="app">
+    <Header menuItems={Menu} />
     <Home />
     <Services services={services} columnsPerRow={3} />
     <About />
@@ -75,7 +81,7 @@ const App = () => (
     <Clients clients={clients} />
     <Footer
       showMenu
-      menuItems={Menu.slice(0, Menu.length - 1)}
+      menuItems={Menu.slice(0, Menu.length - 2)}
       showSocials
       socials={footerSocials}
     />

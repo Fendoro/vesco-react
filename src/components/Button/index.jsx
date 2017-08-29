@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import {Helpers} from 'react-scroll'; // Imports all Mixins
 import './assets/styles.css';
 
 const VescoButton = (props) => {
@@ -42,16 +43,28 @@ export const BlueButton = (props) => {
 BlueButton.propTypes = VescoButton.propTypes;
 BlueButton.defaultProps = VescoButton.defaultProps;
 
-export const UseNavigate = ComposedComponent => (props) => {
-  const { bsClass } = props;
-  const newBsClass = `smooth-scroll ${bsClass || ''}`;
-  return <ComposedComponent {...props} bsClass={newBsClass} />;
-};
+export function UseNavigate(ComposedComponent) {
+  class UseNavigateComponent extends Component {
+    render() {
+      const { bsClass } = this.props;
+      const newBsClass = `smooth-scroll ${bsClass || ''}`;
+      return <ComposedComponent {...this.props} bsClass={newBsClass} />;
+    }
+  }
 
-export const BackToTop = ComposedComponent => (props) => {
-  const { bsClass } = props;
-  const newBsClass = `btn-back-to-top ${bsClass || ''}`;
-  return <ComposedComponent id="back-to-top" {...props} bsClass={newBsClass} />;
-};
+  return Helpers.Scroll(UseNavigateComponent);
+}
+
+export function BackToTop(ComposedComponent) {
+  class BackToTopComponent extends Component {
+    render() {
+      const { bsClass } = this.props;
+      const newBsClass = `btn-back-to-top ${bsClass || ''}`;
+      return <ComposedComponent id="back-to-top" {...this.props} bsClass={newBsClass} />;
+    }
+  }
+
+  return UseNavigate(BackToTopComponent);
+}
 
 export const NavigateButton = UseNavigate(Button);
