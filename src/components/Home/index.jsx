@@ -1,5 +1,5 @@
 import React from 'react';
-import { WhiteButton, UseNavigate } from '../Button';
+import { WhiteButton, UseDefaultNavigation } from '../Button';
 import Section from '../Section';
 import Cover from '../Cover';
 import { ID as WorkId } from '../Work';
@@ -7,7 +7,7 @@ import './assets/styles.css';
 
 export const ID = 'home';
 const Home = () => {
-  const Button = UseNavigate(WhiteButton);
+  const Button = UseDefaultNavigation(WhiteButton);
   return (
     <div id={`${ID}-content-box`}>
       <div id={`${ID}-content-box-inner`} className="text-center">
@@ -20,12 +20,6 @@ const Home = () => {
             href={`#${WorkId}`}
             type="button"
             to={WorkId}
-            spy
-            smooth
-            offset={-64}
-            duration={1250}
-            delay={100}
-            isDynamic
           >
             View Our Work
           </Button>

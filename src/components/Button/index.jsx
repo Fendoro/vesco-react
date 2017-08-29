@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import {Helpers} from 'react-scroll'; // Imports all Mixins
+import { Helpers } from 'react-scroll'; // Imports all Mixins
+import DefaultProps from '../DefaultProps';
 import './assets/styles.css';
 
 const VescoButton = (props) => {
@@ -55,6 +56,16 @@ export function UseNavigate(ComposedComponent) {
   return Helpers.Scroll(UseNavigateComponent);
 }
 
+export const UseDefaultNavigation = ComposedComponent => (
+  DefaultProps({
+    smooth: true,
+    offset: -64,
+    duration: 1250,
+    delay: 100,
+    isDynamic: true,
+  })(UseNavigate(ComposedComponent))
+);
+
 export function BackToTop(ComposedComponent) {
   class BackToTopComponent extends Component {
     render() {
@@ -64,7 +75,7 @@ export function BackToTop(ComposedComponent) {
     }
   }
 
-  return UseNavigate(BackToTopComponent);
+  return UseDefaultNavigation(BackToTopComponent);
 }
 
-export const NavigateButton = UseNavigate(Button);
+export const NavigateButton = UseDefaultNavigation(Button);

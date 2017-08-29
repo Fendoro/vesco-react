@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { NavigateButton, UseDefaultNavigation } from '../Button';
+import { ID as HomeId } from '../Home';
 import './assets/styles.css';
 import LogoImg from './assets/logo.png';
+
+const NavScrollItem = UseDefaultNavigation(NavItem);
 
 class Header extends Component {
   constructor(props) {
@@ -12,21 +16,20 @@ class Header extends Component {
     };
   }
 
-  componentDidMount() {
-    window.addEventListener('hashchange', this.onHashChange);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('hashchange', this.onHashChange);
-  }
-
   onHashChange = () => {
     this.setState({ hash: window.location.hash });
   }
 
   renderItems() {
     return this.props.menuItems.map(({ id, title }) =>
-      <NavItem key={id} active={this.state.hash.includes(id)} href={`#${id}`} className="smooth-scroll">{title}</NavItem>,
+      (<NavScrollItem
+        key={id}
+        href={`#${id}`}
+        to={id}
+        spy
+      >
+        {title}
+      </NavScrollItem>),
     );
   }
 
@@ -37,9 +40,12 @@ class Header extends Component {
           <div className="vesco-nav-wrapper">
             <Navbar.Header>
               <Navbar.Brand>
-                <a className="smooth-scroll" href="#home">
+                <NavigateButton
+                  href={`#${HomeId}`}
+                  to={HomeId}
+                >
                   <img src={LogoImg} alt="logo" />
-                </a>
+                </NavigateButton>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>

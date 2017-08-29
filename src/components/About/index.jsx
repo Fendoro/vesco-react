@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { BlueButton, UseNavigate } from '../Button';
+import { BlueButton, UseDefaultNavigation } from '../Button';
 import ScrollAnimation from '../ScrollAnimation';
 import Section from '../Section';
 import ContentTitle from '../ContentTitle';
@@ -9,7 +9,7 @@ import './assets/styles.css';
 
 export const ID = 'about';
 const About = () => {
-  const Button = UseNavigate(BlueButton);
+  const Button = UseDefaultNavigation(BlueButton);
   return (
     <div>
       <div id="about-bg-diagonal" className="bg-parallax" />
@@ -37,12 +37,6 @@ const About = () => {
                         href={`#${WorkId}`}
                         type="button"
                         to={WorkId}
-                        spy
-                        smooth
-                        offset={-64}
-                        duration={1250}
-                        delay={100}
-                        isDynamic
                       >
                         View Our Work
                       </Button>

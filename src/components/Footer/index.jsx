@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { NavigateButton, BlueButton, BackToTop, WhiteButton } from '../Button';
 import SocialList from '../SocialList';
+import { ID as HomeId } from '../Home';
 import './assets/styles.css';
 
 const Button = BackToTop(BlueButton);
@@ -17,12 +18,6 @@ class Footer extends Component {
         <NavigateButton
           href={`#${id}`}
           to={id}
-          spy
-          smooth
-          offset={-64}
-          duration={1250}
-          delay={100}
-          isDynamic
         >
           {title}
         </NavigateButton>
@@ -47,7 +42,11 @@ class Footer extends Component {
   renderBackToTop() {
     const { id, title } = this.props.menuItems[0];
     return (
-      <Button title={title} href={`#${id}`} >
+      <Button
+        title={title}
+        href={`#${id}`}
+        to={HomeId}
+      >
         <i className="fa fa-angle-up" />
       </Button>
     );
