@@ -5,7 +5,7 @@ const HtmlWebpackPlaugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const VENDOR_LIBS = [
-  'react', 'redux', 'react-redux', 'react-dom',
+  'react', 'react-dom',
   'react-bootstrap', 'prop-types', 'react-images',
   'react-slick', 'react-scroll', 'react-addons-css-transition-group',
 ];
