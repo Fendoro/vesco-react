@@ -11,20 +11,6 @@ import LogoImg from './assets/logo.png';
 const NavScrollItem = UseDefaultNavigation(NavItem, false);
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hash: '',
-    };
-  }
-
-  onHashChange = () => {
-    this.setState({ hash: window.location.hash });
-  }
-
-  handleSetActive = (to) => {
-    //window.location.hash = to;
-  }
 
   renderItems() {
     return this.props.menuItems.map(({ id, title }) =>
@@ -33,7 +19,6 @@ class Header extends Component {
         href={`#${id}`}
         to={id}
         spy
-        onSetActive={this.handleSetActive}
       >
         {title}
       </NavScrollItem>),
