@@ -6,6 +6,7 @@ import ContentBox from '../ContentBox';
 import DynamicContent from '../DynamicContent';
 import ScrollAnimation from '../ScrollAnimation';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'services';
 class Services extends Component {

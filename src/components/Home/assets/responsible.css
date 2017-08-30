@@ -1,0 +1,34 @@
+/* Large Devices */
+
+@media (min-width: 1200px) {}
+
+
+/* Medium Devices */
+
+@media (min-width: 992px) and (max-width:1199px) {
+}
+
+
+/* Small Devices */
+
+@media (min-width: 768px) and (max-width:991px) {
+}
+
+
+/* Extra Small Devices */
+
+@media (max-width:767px) {
+    /* home */
+    #home-heading h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-height:500px) {
+}
+
+@media (max-width:480px) {
+}
+
+@media (max-width:320px) {
+}

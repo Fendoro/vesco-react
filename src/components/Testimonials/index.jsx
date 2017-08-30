@@ -8,6 +8,7 @@ import Section from '../Section';
 import ContentBox from '../ContentBox';
 import Cover from '../Cover';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'testimonials';
 

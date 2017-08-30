@@ -42,9 +42,9 @@ class Team extends Component {
               slidesToShow={3}
               slidesToScroll={1}
               responsive={[
-                { breakpoint: 480, settings: { slidesToShow: 2 } },
-                { breakpoint: 768, settings: { slidesToShow: 3 } },
-                { breakpoint: 0, settings: { slidesToShow: 1 } },
+                { breakpoint: 321, settings: { slidesToShow: 1 } },
+                { breakpoint: 481, settings: { slidesToShow: 2 } },
+                { breakpoint: 769, settings: { slidesToShow: 3 } },
               ]}
             >
               {this.renderTeamMembers()}

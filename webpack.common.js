@@ -7,11 +7,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const VENDOR_LIBS = [
   'react', 'redux', 'react-redux', 'react-dom',
   'react-bootstrap', 'prop-types', 'react-images',
-  'react-slick', 'react-scroll',
+  'react-slick', 'react-scroll', 'react-addons-css-transition-group',
 ];
 
 const config = {
-  devtool: 'source-map',
   entry: {
     bundle: './src/index.jsx',
     vendor: VENDOR_LIBS,
@@ -58,9 +57,6 @@ const config = {
     }),
     new HtmlWebpackPlaugin({
       template: 'src/index.html',
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     new CopyWebpackPlugin([
       {

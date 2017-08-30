@@ -5,6 +5,7 @@ import { Col } from 'react-bootstrap';
 import Section from '../Section';
 import ContentBox from '../ContentBox';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'work';
 

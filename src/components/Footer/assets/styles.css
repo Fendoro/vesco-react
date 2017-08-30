@@ -90,3 +90,21 @@ form .form-control {
 #footer-menu a:hover {
     color: #34c6d3;
 }
+
+.back-to-top-enter {
+    opacity: 0.01;
+  }
+  
+  .back-to-top-enter.back-to-top-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+  
+  .back-to-top-leave {
+    opacity: 1;
+  }
+  
+  .back-to-top-leave.back-to-top-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }

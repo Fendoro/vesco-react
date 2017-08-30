@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import { Helpers } from 'react-scroll'; // Imports all Mixins
+import { Helpers } from 'react-scroll';
 import DefaultProps from '../DefaultProps';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 const VescoButton = (props) => {
   const { bsClass, children } = props;
@@ -44,38 +45,41 @@ export const BlueButton = (props) => {
 BlueButton.propTypes = VescoButton.propTypes;
 BlueButton.defaultProps = VescoButton.defaultProps;
 
-export function UseNavigate(ComposedComponent) {
-  class UseNavigateComponent extends Component {
-    render() {
-      const { bsClass } = this.props;
+export const UseNavigate = (ComposedComponent, useBtnStyle = true) => {
+  const UseNavigateComponent = (props) => {
+    const opts = {};
+    if (useBtnStyle) {
+      const { bsClass } = props;
       const newBsClass = `smooth-scroll ${bsClass || ''}`;
-      return <ComposedComponent {...this.props} bsClass={newBsClass} />;
+      opts.bsClass = newBsClass;
     }
-  }
+    return <ComposedComponent {...props} {...opts} />;
+  };
+  UseNavigateComponent.propTypes = VescoButton.propTypes;
 
   return Helpers.Scroll(UseNavigateComponent);
-}
+};
 
-export const UseDefaultNavigation = ComposedComponent => (
+export const UseDefaultNavigation = (ComposedComponent, useBtnStyle = true) => (
   DefaultProps({
     smooth: true,
     offset: -64,
     duration: 1250,
     delay: 100,
     isDynamic: true,
-  })(UseNavigate(ComposedComponent))
+  })(UseNavigate(ComposedComponent, useBtnStyle))
 );
 
-export function BackToTop(ComposedComponent) {
-  class BackToTopComponent extends Component {
-    render() {
-      const { bsClass } = this.props;
-      const newBsClass = `btn-back-to-top ${bsClass || ''}`;
-      return <ComposedComponent id="back-to-top" {...this.props} bsClass={newBsClass} />;
-    }
-  }
+export const BackToTop = (ComposedComponent) => {
+  const BackToTopComponent = (props) => {
+    const { bsClass } = props;
+    const newBsClass = `btn-back-to-top ${bsClass || ''}`;
+    return <ComposedComponent id="back-to-top" {...props} bsClass={newBsClass} />;
+  };
+  BackToTopComponent.propTypes = VescoButton.propTypes;
+  BackToTopComponent.defaultProps = VescoButton.defaultProps;
 
   return UseDefaultNavigation(BackToTopComponent);
-}
+};
 
 export const NavigateButton = UseDefaultNavigation(Button);

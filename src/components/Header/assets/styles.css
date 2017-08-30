@@ -1,27 +1,31 @@
 /* NAVIGATION */
 
-.navbar {
+.vesco-navbar.navbar {
     padding: 20px 0;
     -webkit-transition: all .5s ease-in-out;
     -o-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
 }
 
-.vesco-top-nav {
+.vesco-navbar {
+    background: none;
+    border: none;
+}
+
+.vesco-navbar.vesco-top-nav {
     background: rgba(0, 0, 0, .7);
     padding: 7px 0;
 }
 
-.vesco-nav-wrapper {
+.vesco-navbar .vesco-nav-wrapper {
     padding: 0 85px;
 }
 
-.navbar-nav {
+.vesco-navbar .navbar-nav {
     float: right;
 }
 
-.navbar-inverse .navbar-nav>li>a,
-.navbar-nav>li>a {
+.vesco-navbar .navbar-nav>li>a {
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -29,29 +33,25 @@
     font-weight: 700;
 }
 
-.navbar-nav>li>a:hover,
-.navbar-nav>li>a:focus,
-.vesco-top-nav .navbar-nav>li.active>a,
-.navbar-inverse .navbar-nav>li>a:hover,
-.navbar-inverse .navbar-nav>li>a:focus,
-.navbar-inverse.vesco-top-nav .navbar-nav>li.active>a {
+.vesco-navbar .navbar-nav>li.active>a:hover,
+.vesco-navbar .navbar-nav>li.active>a:focus,
+.vesco-navbar .navbar-nav>li.active>a,
+.vesco-navbar .navbar-nav>li>a:hover,
+.vesco-navbar .navbar-nav>li>a:focus {
     background: none;
     color: #34c6d3;
 }
 
-.navbar-inverse .navbar-toggle,
-.navbar-toggle {
+.vesco-navbar .navbar-toggle {
     background-color: rgba(0, 0, 0, .1);
     border: 1px solid #fff;
     border-radius: 0;
 }
 
-.navbar-inverse .navbar-toggle .icon-bar,
-.navbar-toggle .icon-bar {
+.vesco-navbar .navbar-toggle .icon-bar {
     background-color: #fff;
 }
 
-.navbar-inverse .navbar-collapse.no-max-height,
-.navbar-collapse.no-max-height {
+.vesco-navbar .navbar-collapse.no-max-height {
     max-height: none;
 }

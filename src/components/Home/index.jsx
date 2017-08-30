@@ -4,6 +4,7 @@ import Section from '../Section';
 import Cover from '../Cover';
 import { ID as WorkId } from '../Work';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'home';
 const Home = () => {

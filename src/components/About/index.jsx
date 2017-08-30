@@ -6,6 +6,7 @@ import Section from '../Section';
 import ContentTitle from '../ContentTitle';
 import { ID as WorkId } from '../Work';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'about';
 const About = () => {

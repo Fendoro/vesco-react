@@ -1,0 +1,60 @@
+/* Large Devices */
+
+@media (min-width: 1200px) {}
+
+
+/* Medium Devices */
+
+@media (min-width: 992px) and (max-width:1199px) {
+}
+
+
+/* Small Devices */
+
+@media (min-width: 768px) and (max-width:991px) {
+}
+
+
+/* Extra Small Devices */
+
+@media (max-width:767px) {
+    /* testimonials */
+    .testimonial blockquote {
+        padding: 6px 50px;
+    }
+    .testimonial blockquote::before,
+    .testimonial blockquote::after {
+        font-size: 60px;
+    }
+    .testimonial blockquote::before {
+        left: 10px;
+    }
+    .testimonial blockquote::after {
+        right: 10px;
+    }
+    .testimonial blockquote p {
+        font-size: 14px;
+    }
+}
+
+@media (max-height:500px) {
+}
+
+@media (max-width:480px) {
+}
+
+@media (max-width:320px) {
+    /* testimonials */
+    .testimonial img {
+        max-width: 80px;
+    }
+    .testimonial blockquote {
+        padding: 6px 30px;
+    }
+    .testimonial blockquote::before {
+        left: 7px;
+    }
+    .testimonial blockquote::after {
+        right: 7px;
+    }
+}

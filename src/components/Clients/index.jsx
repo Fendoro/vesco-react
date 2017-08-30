@@ -40,10 +40,10 @@ class Clients extends Component {
               slidesToShow={6}
               slidesToScroll={1}
               responsive={[
-                { breakpoint: 320, settings: { slidesToShow: 1 } },
-                { breakpoint: 480, settings: { slidesToShow: 3 } },
-                { breakpoint: 768, settings: { slidesToShow: 5 } },
-                { breakpoint: 992, settings: { slidesToShow: 6 } },
+                { breakpoint: 321, settings: { slidesToShow: 1 } },
+                { breakpoint: 481, settings: { slidesToShow: 3 } },
+                { breakpoint: 769, settings: { slidesToShow: 5 } },
+                { breakpoint: 993, settings: { slidesToShow: 6 } },
               ]}
             >
               {this.renderClients()}

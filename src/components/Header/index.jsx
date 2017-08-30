@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { NavigateButton, UseDefaultNavigation } from '../Button';
 import { ID as HomeId } from '../Home';
+import CheckOnTop from '../CheckOnTop';
 import './assets/styles.css';
+import './assets/responsible.css';
 import LogoImg from './assets/logo.png';
 
-const NavScrollItem = UseDefaultNavigation(NavItem);
+const NavScrollItem = UseDefaultNavigation(NavItem, false);
 
 class Header extends Component {
   constructor(props) {
@@ -20,6 +22,10 @@ class Header extends Component {
     this.setState({ hash: window.location.hash });
   }
 
+  handleSetActive = (to) => {
+    //window.location.hash = to;
+  }
+
   renderItems() {
     return this.props.menuItems.map(({ id, title }) =>
       (<NavScrollItem
@@ -27,6 +33,7 @@ class Header extends Component {
         href={`#${id}`}
         to={id}
         spy
+        onSetActive={this.handleSetActive}
       >
         {title}
       </NavScrollItem>),
@@ -36,7 +43,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Navbar inverse fluid fixedTop className="vesco-top-nav">
+        <Navbar collapseOnSelect inverse fluid fixedTop className={`vesco-navbar ${!this.props.onTop ? 'vesco-top-nav' : ''}`}>
           <div className="vesco-nav-wrapper">
             <Navbar.Header>
               <Navbar.Brand>
@@ -62,6 +69,11 @@ class Header extends Component {
 
 Header.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onTop: PropTypes.bool,
 };
 
-export default Header;
+Header.defaultProps = {
+  onTop: false,
+};
+
+export default CheckOnTop(Header);

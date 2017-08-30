@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-bootstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { NavigateButton, BlueButton, BackToTop, WhiteButton } from '../Button';
+import CheckOnTop from '../CheckOnTop';
 import SocialList from '../SocialList';
 import { ID as HomeId } from '../Home';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 const Button = BackToTop(BlueButton);
 export const ID = 'contact';
@@ -40,16 +43,19 @@ class Footer extends Component {
   }
 
   renderBackToTop() {
-    const { id, title } = this.props.menuItems[0];
-    return (
-      <Button
-        title={title}
-        href={`#${id}`}
-        to={HomeId}
-      >
-        <i className="fa fa-angle-up" />
-      </Button>
-    );
+    if (!this.props.onTop) {
+      const { id, title } = this.props.menuItems[0];
+      return (
+        <Button
+          title={title}
+          href={`#${id}`}
+          to={HomeId}
+        >
+          <i className="fa fa-angle-up" />
+        </Button>
+      );
+    }
+    return null;
   }
 
   renderSocials() {
@@ -114,7 +120,13 @@ class Footer extends Component {
             </Row>
           </Grid>
         </div>
-        {this.renderBackToTop()}
+        <ReactCSSTransitionGroup
+          transitionName="back-to-top"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+        >
+          {this.renderBackToTop()}
+        </ReactCSSTransitionGroup>
       </footer>
     );
   }
@@ -125,6 +137,7 @@ Footer.propTypes = {
   menuItems: PropTypes.arrayOf(PropTypes.object),
   showSocials: PropTypes.bool,
   socials: PropTypes.arrayOf(PropTypes.object),
+  onTop: PropTypes.bool,
 };
 
 Footer.defaultProps = {
@@ -132,6 +145,7 @@ Footer.defaultProps = {
   menuItems: [],
   showSocials: false,
   socials: [],
+  onTop: false,
 };
 
-export default Footer;
+export default CheckOnTop(Footer);

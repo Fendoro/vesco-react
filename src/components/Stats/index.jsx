@@ -7,6 +7,7 @@ import ContentBox from '../ContentBox';
 import Cover from '../Cover';
 import DynamicContent from '../DynamicContent';
 import './assets/styles.css';
+import './assets/responsible.css';
 
 export const ID = 'stats';
 
