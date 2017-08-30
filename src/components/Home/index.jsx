@@ -2,6 +2,7 @@ import React from 'react';
 import { WhiteButton, UseDefaultNavigation } from '../Button';
 import Section from '../Section';
 import Cover from '../Cover';
+import ScrollAnimation from '../ScrollAnimation';
 import { ID as WorkId } from '../Work';
 import './assets/styles.css';
 import './assets/responsible.css';
@@ -12,19 +13,23 @@ const Home = () => {
   return (
     <div id={`${ID}-content-box`}>
       <div id={`${ID}-content-box-inner`} className="text-center">
-        <div id={`${ID}-heading`} className="animated zoomIn">
-          <h3>Watch Out<br />The Modern Responsive Website!</h3>
-        </div>
-        <div id={`${ID}-btn`} className="animated zoomIn">
-          <Button
-            bsSize="lg"
-            href={`#${WorkId}`}
-            type="button"
-            to={WorkId}
-          >
-            View Our Work
+        <ScrollAnimation animateIn="zoomIn">
+          <div id={`${ID}-heading`} >
+            <h3>Watch Out<br />The Modern Responsive Website!</h3>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="zoomIn">
+          <div id={`${ID}-btn`} >
+            <Button
+              bsSize="lg"
+              href={`#${WorkId}`}
+              type="button"
+              to={WorkId}
+            >
+              View Our Work
           </Button>
-        </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </div>
   );

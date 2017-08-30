@@ -21,21 +21,19 @@ export default class ScrollAnimation extends Component {
       classes: 'animated',
       style: { animationDuration: `${this.props.duration}s`, visibility: initialHide },
       lastVisibility: { partially: false, completely: false },
-      timeouts: [],
     };
-    if (window && window.addEventListener) {
-      window.addEventListener('scroll', throttle(this.handleScroll.bind(this), 200));
-    }
-    this.getClasses = this.getClasses.bind(this);
   }
 
   componentDidMount() {
     this.handleScroll();
+    if (window && window.addEventListener) {
+      window.addEventListener('scroll', throttle(this.handleScroll, 500));
+    }
   }
 
   componentWillUnmount() {
     if (window && window.addEventListener) {
-      window.removeEventListener('scroll', this.handleScroll.bind(this));
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 
@@ -47,7 +45,7 @@ export default class ScrollAnimation extends Component {
     return style;
   }
 
-  getClasses(visible) {
+  getClasses = (visible) => {
     let classes = 'animated';
     if ((visible.completely && this.props.animateIn) ||
       (visible.partially && !this.props.animateOut)) {
@@ -58,28 +56,13 @@ export default class ScrollAnimation extends Component {
     return classes;
   }
 
-  handleScroll() {
+  handleScroll = () => {
     const visible = this.isVisible();
-    if (!visible.partially) {
-      this.state.timeouts.forEach((tid) => {
-        clearTimeout(tid);
-      });
-    }
     if ((visible.completely !== this.state.lastVisibility.completely && !visible.partially) ||
       visible.partially !== this.state.lastVisibility.partially) {
       const style = this.getStyle(visible);
       const classes = this.getClasses(visible);
-      const that = this;
-      if (visible.partially) {
-        const timeout = setTimeout(() => {
-          that.setState({ classes, style, lastVisibility: visible });
-        }, this.props.delay);
-        const timeouts = this.state.timeouts.slice();
-        timeouts.push(timeout);
-        this.setState({ timeouts });
-      } else {
-        this.setState({ classes, style, lastVisibility: visible });
-      }
+      this.setState({ classes, style, lastVisibility: visible });
     }
   }
 
