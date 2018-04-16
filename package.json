@@ -30,7 +30,7 @@
     "react-count-animation": "^1.1.1",
     "react-dom": "^15.6.1",
     "react-images": "^0.5.4",
-    "react-scroll": "^1.5.4",
+    "react-scroll": "1.5.4",
     "react-slick": "^0.14.11",
     "react-transition-group": "^1.2.0",
     "slick-carousel": "^1.6.0"
